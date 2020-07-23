@@ -1,0 +1,51 @@
+<robot name="ros_control_car" xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:include filename="$(find car)/urdf/car.urdf.xacro" />
+
+    <transmission name="back_left">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="back_left_wheel_joint">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            <!--<hardwareInterface>VelocityJointInterface</hardwareInterface>-->
+            </joint>
+        <actuator name="back_left_motor">
+            <mechanicalReduction>100</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="back_right">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="back_right_wheel_joint">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            <!--<hardwareInterface>VelocityJointInterface</hardwareInterface>-->
+            </joint>
+        <actuator name="back_right_motor">
+            <mechanicalReduction>100</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="front_left">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="front_left_wheel_joint">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            <!--<hardwareInterface>VelocityJointInterface</hardwareInterface>-->
+            </joint>
+        <actuator name="front_left_motor">
+            <mechanicalReduction>100</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="front_right">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="front_right_wheel_joint">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            <!--<hardwareInterface>VelocityJointInterface</hardwareInterface>-->
+            </joint>
+        <actuator name="front_right_motor">
+            <mechanicalReduction>100</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+    
+</robot>

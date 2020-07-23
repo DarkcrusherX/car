@@ -1,0 +1,21 @@
+<robot name="ros_control_car" xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:include filename="$(find car)/urdf/car.urdf.xacro" />
+
+    <gazebo>
+        <plugin name="car_controller" filename="libgazebo_ros_skid_steer_drive.so">
+            <updateRate>30.0</updateRate>
+            <robotNamespace>/</robotNamespace>
+            <leftFrontJoint>front_left_wheel_joint</leftFrontJoint>
+            <rightFrontJoint>front_right_wheel_joint</rightFrontJoint>
+            <leftRearJoint>back_left_wheel_joint</leftRearJoint>
+            <rightRearJoint>back_right_wheel_joint</rightRearJoint>
+            <wheelSeparation>0.3</wheelSeparation>
+            <wheelDiameter>0.1</wheelDiameter>
+            <robotBaseFrame>base_link</robotBaseFrame>
+            <torque>20</torque>
+            <topicName>cmd_vel</topicName>
+            <broadcastTF>false</broadcastTF>
+        </plugin>
+    </gazebo>
+    
+</robot>
