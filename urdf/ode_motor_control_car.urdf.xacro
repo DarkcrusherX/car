@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <robot name="car" xmlns:xacro="http://ros.org/wiki/xacro">
     <xacro:include filename="$(find gazebo_ros_motors)/xacro/joint_motor.xacro"/>
 
