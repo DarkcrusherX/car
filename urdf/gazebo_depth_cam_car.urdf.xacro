@@ -1,6 +1,16 @@
 <?xml version="1.0" ?>
 <robot name="ros_control_car" xmlns:xacro="http://ros.org/wiki/xacro">
     <xacro:include filename="$(find car)/urdf/car.urdf.xacro" />
+    <xacro:include filename="$(find car)/urdf/sensors/realsense/realsense-RS200.macro.xacro"/>
+
+    <!-- <joint name="cam_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="rs200_camera"/>
+        <origin rpy="0 0 1.0" xyz="0 0 0"/>
+    </joint>  -->
+    <xacro:realsense-rs200 prefix="" parent="base_link">
+        <origin xyz="0.155 0 0.05" rpy="0 0 0" />   
+    </xacro:realsense-rs200>
 
     <gazebo>
         <plugin name="car_controller" filename="libgazebo_ros_skid_steer_drive.so">
