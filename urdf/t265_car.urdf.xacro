@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<robot name="ros_control_car" xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:include filename="$(find car)/urdf/car.urdf.xacro" />
+    <xacro:include filename="$(find car)/urdf/sensors/realsense/tracker.xacro"/>
+
+    <!-- <joint name="cam_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="rs200_camera"/>
+        <origin rpy="0 0 1.0" xyz="0 0 0"/>
+    </joint>  -->
+  <xacro:realsense_T265 sensor_name="camera" parent_link="base_link" rate="10.0">
+    <origin rpy="1.57 1.57 0" xyz="0.155 0 0.05"/>
+  </xacro:realsense_T265>
+
+    <gazebo>
+        <plugin name="car_controller" filename="libgazebo_ros_skid_steer_drive.so">
+            <updateRate>30.0</updateRate>
+            <robotNamespace>/</robotNamespace>
+            <leftFrontJoint>front_left_wheel_joint</leftFrontJoint>
+            <rightFrontJoint>front_right_wheel_joint</rightFrontJoint>
+            <leftRearJoint>back_left_wheel_joint</leftRearJoint>
+            <rightRearJoint>back_right_wheel_joint</rightRearJoint>
+            <wheelSeparation>0.3</wheelSeparation>
+            <wheelDiameter>0.1</wheelDiameter>
+            <robotBaseFrame>base_link</robotBaseFrame>
+            <torque>20</torque>
+            <topicName>cmd_vel</topicName>
+            <broadcastTF>false</broadcastTF>
+        </plugin>
+    </gazebo>
+    
+</robot>
