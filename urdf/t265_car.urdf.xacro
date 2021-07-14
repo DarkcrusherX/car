@@ -9,7 +9,7 @@
         <origin rpy="0 0 1.0" xyz="0 0 0"/>
     </joint>  -->
   <xacro:realsense_T265 sensor_name="camera" parent_link="base_link" rate="10.0">
-    <origin rpy="1.57 1.57 0" xyz="0.155 0 0.05"/>
+    <origin rpy="1.57 1.57 0" xyz="0.235 0 0.055"/>
   </xacro:realsense_T265>
 
     <gazebo>

@@ -4,7 +4,7 @@
 	<param name="use_gui" value="true"/>
 
 	<!-- Load the URDF into the parameter server -->
-	<param name="robot_description" command="$(find xacro)/xacro --inorder '/home/ahal/catkin_ws/src/car/urdf/sensors/depth_camera.urdf.xacro'" />
+	<param name="robot_description" command="$(find xacro)/xacro --inorder '/home/ahal/catkin_ws/src/car/urdf/t265_car.urdf.xacro'" />
 	<!-- Spin up the node that will spawn the robot model is defined in the URDF -->
 	<node 
 		name="spawn_gazebo_model" 
